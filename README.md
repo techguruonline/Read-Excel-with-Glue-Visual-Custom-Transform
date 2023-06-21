@@ -76,6 +76,13 @@ Let's get into the Glue Studio and follow the below steps to develop a job
 4. Add a dummy S3 source as the custom visual transform that we just developed (python code) will take care of parsing and reading the excel file as a first step
 5. Configure the source S3 node as shown in the below screen shot
 ![Below screenshot of the ETL Job developed using Glue Studio Visual](https://github.com/techguruonline/Read-Excel-with-Glue-Visual-Custom-Transform/blob/main/Images/GlueJobSrc.png)
-6. From the `Action` dropdown, now you will see a new transform called `Read Excel File` and the naming is from the config file that we defined in the above step.
+6. From the `Action` dropdown, now you will see a new transform called `Read Excel file` and the naming is from the config file that we defined in the above step.
 7. Select the transform to add to your ETL pipeline and configure it on the right as shown in the below screenshot
 ![Below screenshot of the new custom transform](https://github.com/techguruonline/Read-Excel-with-Glue-Visual-Custom-Transform/blob/main/Images/CustomVisualTransform.png)
+8. Perform transformation on the excel data like changing the data types, joins, aggregation or Lookup.
+9. And finally, add a target and fill out the job details, save and run the job.
+
+We just developed our own custom transformation and added it to AWS Glue as a reusable component for others to use within the organization!!
+This is pretty powerful and advanced capability that Glue offers.
+
+Hope you learnt something fun today!, if you have any questions or suggestions, please reach out to me on my Linkedin or on email!!
