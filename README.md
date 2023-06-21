@@ -54,7 +54,7 @@ Now we have the backend code ready, to pass the arguments from within the Glue S
 `displayName`: string – (optional) the name of the transform displayed in the AWS Glue Studio visual job editor. If no displayName is specified, the name is used as the name of the transform in AWS Glue Studio.  
 `description`: string – (optional) the transform description is displayed in AWS Glue Studio and is searchable.  
 `functionName`: string – (required) the Python function name is used to identify the function to call in the Python script.  
-`path`: string – (optional) the full Amazon S3 path to the Python source file. If not specified, AWS Glue uses file name matching to pair the .json and .py files together. For example, the name of the JSON file, myTransform.json, will be paired to the Python file, myTransform.py, on the same Amazon S3 location.
+`path`: string – (optional) the full Amazon S3 path to the Python source file. If not specified, AWS Glue uses file name matching to pair the .json and .py files together. For example, the name of the JSON file, myTransform.json, will be paired to the Python file, myTransform.py, on the same Amazon S3 location.  
 `parameters`: Array of TransformParameter object – (optional) the list of parameters to be displayed when you configure them in the AWS Glue Studio visual editor.
 
 ![Screenshot of config JSON file](https://github.com/techguruonline/Read-Excel-with-Glue-Visual-Custom-Transform/blob/main/Images/ConfigFile.png)
