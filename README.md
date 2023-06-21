@@ -21,18 +21,24 @@ Under Glue service, there are different components such as Data Catalog, Data In
 
 Glue provides more than 30 ready to use built-in advanced transforms such as Join, Aggregate, Filter, SQL Query etc to transform your data part of your ETL pipeline.
 What if you want a specific functionality that isn't part of AWS Glue built-in transform offering? What if you want to built a custom transformation yourself much like a UDF?
-Well, AWS Glue has an answer for you through Visual Custom Transform. Custom visual transforms allow you to create transforms and make them available for use in AWS Glue Studio jobs. Custom visual transforms enable ETL developers, who may not be familiar with coding, to search and use a growing library of transforms using the AWS Glue Studio interface.
+Well, AWS Glue has an answer for you through Custom Visual Transform. Custom visual transforms allow you to create transforms and make them available for use in AWS Glue Studio jobs. Custom visual transforms enable ETL developers, who may not be familiar with coding, to search and use a growing library of transforms using the AWS Glue Studio interface.
 
 I am going to show you step by step on how to develop your own transformation and make it available for others in your organization to reuse it for their ETL pipeline development
-In this example we are going to develop a Visual Custom Transform for reading a Excel file that is stored on Amazon S3 and make it available in Glue studio for others to reuse.
+In this example we are going to develop a Custom Visual Transform for reading a Excel file that is stored on Amazon S3 and make it available in Glue studio for others to reuse.
 
-### Pre-requisite
+### Prerequisites
 
-1. AWS Account
-2. S3 Bucket for Storing the Source excel file, Python script, config JSON file
-3. Editor for developing Python code (I am using VS Code)
+In order to use a custom transform in AWS Glue Studio, you will need to create and upload two files to the Amazon S3 assets bucket in that AWS account:
+    Python file – contains the transform function
+    JSON file – describes the transform. This is also known as the config file that is required to define the transform.
 
-Please refer to the official [documentation](https://docs.aws.amazon.com/glue/latest/ug/custom-visual-transform.html) on AWS Glue custom visual transforms for more details!
+In order to pair the files together, use the same name for both. For example:
+    myTransform.json
+    myTransform.py
+
+AWS Glue Studio will automatically match them using their respective file names. File names cannot be the same for any existing module.
+
+Transforms you create are stored in Amazon S3 and is owned by your AWS account. You create new custom visual transforms by simply uploading files (json and py) to the Amazon S3 assets folder where all job scripts are currently stored (for example, s3://aws-glue-assets-<accountid>-<region>/transforms). By default, AWS Glue Studio will read all .json files from the /transforms folder in the same S3 bucket.
 
 First we need to develop a Python code with a function to parse and read the excel file. 
 Lets examine the below code, I have also provided the python file in the repo, please feel to use it for your purpose.
@@ -50,14 +56,20 @@ Now we have the backend code ready, to pass the arguments from within the Glue S
 
 #### JSON file structure:
 
-    `name`: string – (required) the transform system name used to identify transforms. Follow the same naming rules set for python variable names (identifiers). Specifically, they must start with either a letter or an underscore and then be composed entirely of letters, digits, and/or underscores.  
+`name`: string – (required) the transform system name used to identify transforms. Follow the same naming rules set for python variable names (identifiers). Specifically, they must start with either a letter or an underscore and then be composed entirely of letters, digits, and/or underscores.  
 `displayName`: string – (optional) the name of the transform displayed in the AWS Glue Studio visual job editor. If no displayName is specified, the name is used as the name of the transform in AWS Glue Studio.  
 `description`: string – (optional) the transform description is displayed in AWS Glue Studio and is searchable.  
 `functionName`: string – (required) the Python function name is used to identify the function to call in the Python script.  
 `path`: string – (optional) the full Amazon S3 path to the Python source file. If not specified, AWS Glue uses file name matching to pair the .json and .py files together. For example, the name of the JSON file, myTransform.json, will be paired to the Python file, myTransform.py, on the same Amazon S3 location.  
 `parameters`: Array of TransformParameter object – (optional) the list of parameters to be displayed when you configure them in the AWS Glue Studio visual editor.
 
+We are configuring 2 parameters - 1. bucket_name and 2. prefix_xls
 ![Screenshot of config JSON file](https://github.com/techguruonline/Read-Excel-with-Glue-Visual-Custom-Transform/blob/main/Images/ConfigFile.png)
+
+Follow the instructions provided above under Prerequisites 
+
+We now have the backend code which we will use it to develop and power the Custom Visual Transform to read an Excel file from S3.
+Lest get into the Glue Studio and follow the below steps to develop a job
 
 
 
