@@ -31,4 +31,4 @@ In this example we are going to develop a Visual Custom Transform for reading a 
 
 
 
-![Below screenshot of the ETL Job developed using Glue Studio Visual](/Users/nsprasad/Prasad/Code/workshops-immersion-days/Blogs/Read-Excel-with-Glue-Visual-Custom-Transform/GlueJob.png)
+![Below screenshot of the ETL Job developed using Glue Studio Visual](https://github.com/techguruonline/Read-Excel-with-Glue-Visual-Custom-Transform/blob/main/GlueJob.png)
