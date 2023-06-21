@@ -7,7 +7,7 @@ Under Glue service, there are different components such as Data Catalog, Data In
 ### Data Catalog
 
  1. AWS Glue Data Catalog is a centralized and unified metadata repository. It is a managed service where you can store, search, share metadata with various AWS services. You catalog your databases, table definitions or schema, runtime metrics in the data catalog.
- 2. With AWS Glue, you can discover and connect to more than 70 diverse data sources and manage your data in a centralized data catalog.
+ 2. With AWS Glue, you can discover and connect to more than `70 diverse data sources` and manage your data in a centralized data catalog.
  3. You create connections to your data sources like JDBC, you create the connection once providing the user credentials, data catalog stores the connection details for you and can be reused across jobs
  4. Crawlers lets you crawl through your data stores, scans your tables and adds table definition and schema to your data catalog automatically. 
 
@@ -22,4 +22,10 @@ Under Glue service, there are different components such as Data Catalog, Data In
 
 Glue provides more than 30 ready to use built-in advanced transforms such as Join, Aggregate, Filter, SQL Query etc to transform your data part of your ETL pipeline.
 What if you want a specific functionality that isn't part of AWS Glue built-in transform offering? What if you want to built a custom transformation yourself much like a UDF?
-Well, AWS GLue has an answer for you through Visual Custom Transform. Custom visual transforms allow you to create transforms and make them available for use in AWS Glue Studio jobs. Custom visual transforms enable ETL developers, who may not be familiar with coding, to search and use a growing library of transforms using the AWS Glue Studio interface.
+Well, AWS Glue has an answer for you through Visual Custom Transform. Custom visual transforms allow you to create transforms and make them available for use in AWS Glue Studio jobs. Custom visual transforms enable ETL developers, who may not be familiar with coding, to search and use a growing library of transforms using the AWS Glue Studio interface.
+
+I am going to show you step by step on how to develop your own transformation and make it available for others in your organization to reuse it for their ETL pipeline development
+In this example we are going to develop a Visual Custom Transform for reading a Excel file that is stored on Amazon S3 and make it available in Glue studio for others to reuse.
+
+### Pre-requisite:
+
