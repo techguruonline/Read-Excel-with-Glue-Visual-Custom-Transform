@@ -38,7 +38,7 @@ In order to pair the files together, use the same name for both. For example:
 
 AWS Glue Studio will automatically match them using their respective file names. File names cannot be the same for any existing module.
 
-Transforms you create are stored in Amazon S3 and is owned by your AWS account. You create new custom visual transforms by simply uploading files (json and py) to the Amazon S3 assets folder where all job scripts are currently stored (`for example, s3://aws-glue-assets-<accountid>-<region>/transforms`). By default, **AWS Glue Studio will read all .json files from the /transforms folder in the same S3 bucket.**
+Transforms you create are stored in Amazon S3 and is owned by your AWS account. You create new custom visual transforms by simply uploading files (json and py) to the Amazon S3 assets folder where all job scripts are currently stored (`for example, s3://aws-glue-assets-<accountid>-<region>/transforms`). By default, __AWS Glue Studio will read all .json files from the /transforms folder in the same S3 bucket.__
 
 First we need to develop a Python code with a function to parse and read the excel file. 
 Lets examine the below code, I have also provided the python file in the repo, please feel to use it for your purpose.
