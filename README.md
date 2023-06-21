@@ -28,12 +28,12 @@ In this example we are going to develop a Custom Visual Transform for reading a 
 
 ### Prerequisites
 
-In order to use a custom transform in AWS Glue Studio, you will need to create and upload two files to the Amazon S3 assets bucket in that AWS account:
-    Python file – contains the transform function
+In order to use a custom transform in AWS Glue Studio, you will need to create and upload two files to the Amazon S3 assets bucket in that AWS account:  
+    Python file – contains the transform function  
     JSON file – describes the transform. This is also known as the config file that is required to define the transform.
 
-In order to pair the files together, use the same name for both. For example:
-    myTransform.json
+In order to pair the files together, use the same name for both. For example:  
+    myTransform.json  
     myTransform.py
 
 AWS Glue Studio will automatically match them using their respective file names. File names cannot be the same for any existing module.
