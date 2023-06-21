@@ -40,7 +40,7 @@ AWS Glue Studio will automatically match them using their respective file names.
 
 Transforms you create are stored in Amazon S3 and is owned by your AWS account. You create new custom visual transforms by simply uploading files (json and py) to the Amazon S3 assets folder where all job scripts are currently stored (`for example, s3://aws-glue-assets-<accountid>-<region>/transforms`). By default, AWS Glue Studio will read all .json files from the /transforms folder in the same S3 bucket.
 
-First we need to develop a Python code with a function to parse and read the excel file. 
+First we need to develop a Python code with a function to parse and read the excel file.
 Lets examine the below code, I have also provided the python file in the repo, please feel to use it for your purpose.
 
 1. List all the objects in the S3 path
@@ -51,10 +51,9 @@ Lets examine the below code, I have also provided the python file in the repo, p
 
 ![Screenshot of Python Code](https://github.com/techguruonline/Read-Excel-with-Glue-Visual-Custom-Transform/blob/main/Images/PythonCode.png)
 
-
 Now we have the backend code ready, to pass the arguments from within the Glue Studio, we need to create a config file
 
-#### JSON file structure:
+#### JSON file structure
 
 `name`: string – (required) the transform system name used to identify transforms. Follow the same naming rules set for python variable names (identifiers). Specifically, they must start with either a letter or an underscore and then be composed entirely of letters, digits, and/or underscores.  
 `displayName`: string – (optional) the name of the transform displayed in the AWS Glue Studio visual job editor. If no displayName is specified, the name is used as the name of the transform in AWS Glue Studio.  
@@ -77,4 +76,6 @@ Let's get into the Glue Studio and follow the below steps to develop a job
 4. Add a dummy S3 source as the custom visual transform that we just developed (python code) will take care of parsing and reading the excel file as a first step
 5. Configure the source S3 node as shown in the below screen shot
 ![Below screenshot of the ETL Job developed using Glue Studio Visual](https://github.com/techguruonline/Read-Excel-with-Glue-Visual-Custom-Transform/blob/main/Images/GlueJobSrc.png)
-6. Add 
+6. From the `Action` dropdown, now you will see a new transform called `Read Excel File` and the naming is from the config file that we defined in the above step.
+7. Select the transform to add to your ETL pipeline and configure it on the right as shown in the below screenshot
+![Below screenshot of the new custom transform](https://github.com/techguruonline/Read-Excel-with-Glue-Visual-Custom-Transform/blob/main/Images/CustomVisualTransform.png)
