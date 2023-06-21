@@ -33,12 +33,12 @@ In order to use a custom transform in AWS Glue Studio, you will need to create a
 > JSON file – describes the transform. This is also known as the config file that is required to define the transform.
 
 In order to pair the files together, use the same name for both. For example:  
-    myTransform.json  
-    myTransform.py
+> myTransform.json  
+> myTransform.py
 
 AWS Glue Studio will automatically match them using their respective file names. File names cannot be the same for any existing module.
 
-Transforms you create are stored in Amazon S3 and is owned by your AWS account. You create new custom visual transforms by simply uploading files (json and py) to the Amazon S3 assets folder where all job scripts are currently stored (for example, s3://aws-glue-assets-<accountid>-<region>/transforms). By default, AWS Glue Studio will read all .json files from the /transforms folder in the same S3 bucket.
+Transforms you create are stored in Amazon S3 and is owned by your AWS account. You create new custom visual transforms by simply uploading files (json and py) to the Amazon S3 assets folder where all job scripts are currently stored (`for example, s3://aws-glue-assets-<accountid>-<region>/transforms`). By default, **AWS Glue Studio will read all .json files from the /transforms folder in the same S3 bucket.**
 
 First we need to develop a Python code with a function to parse and read the excel file. 
 Lets examine the below code, I have also provided the python file in the repo, please feel to use it for your purpose.
