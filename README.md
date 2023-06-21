@@ -28,4 +28,12 @@ In this example we are going to develop a Visual Custom Transform for reading a 
 
 ### Pre-requisite
 
+1. AWS Account
+2. S3 Bucket for Storing the Source excel file, Python script, config JSON file
+3. Editor for developing Python code (I am using VS Code)
+
+First we need to develop a Python code with a function to parse and read the excel file.
+
+(<https://github.com/techguruonline/Read-Excel-with-Glue-Visual-Custom-Transform/blob/main/Images/PythonCode.png>)
+
 ![Below screenshot of the ETL Job developed using Glue Studio Visual](https://github.com/techguruonline/Read-Excel-with-Glue-Visual-Custom-Transform/blob/main/Images/GlueJob.png)
