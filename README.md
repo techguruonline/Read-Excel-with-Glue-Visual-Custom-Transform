@@ -38,7 +38,7 @@ In order to pair the files together, use the same name for both. For example:
 
 AWS Glue Studio will automatically match them using their respective file names. File names cannot be the same for any existing module.
 
-Transforms you create are stored in Amazon S3 and is owned by your AWS account. You create new custom visual transforms by simply uploading files (json and py) to the Amazon S3 assets folder where all job scripts are currently stored (`for example, s3://aws-glue-assets-<accountid>-<region>/transforms`). By default, __AWS Glue Studio will read all .json files from the /transforms folder in the same S3 bucket.__
+Transforms you create are stored in Amazon S3 and is owned by your AWS account. You create new custom visual transforms by simply uploading files (json and py) to the Amazon S3 assets folder where all job scripts are currently stored (`for example, s3://aws-glue-assets-<accountid>-<region>/transforms`). By default, AWS Glue Studio will read all .json files from the /transforms folder in the same S3 bucket.
 
 First we need to develop a Python code with a function to parse and read the excel file. 
 Lets examine the below code, I have also provided the python file in the repo, please feel to use it for your purpose.
@@ -66,12 +66,15 @@ Now we have the backend code ready, to pass the arguments from within the Glue S
 We are configuring 2 parameters - 1. bucket_name and 2. prefix_xls
 ![Screenshot of config JSON file](https://github.com/techguruonline/Read-Excel-with-Glue-Visual-Custom-Transform/blob/main/Images/ConfigFile.png)
 
-Follow the instructions provided above under Prerequisites 
+Next, follow the instructions provided above under Prerequisites to upload both python (.py) and JSON (.json) files to S3
 
-We now have the backend code which we will use it to develop and power the Custom Visual Transform to read an Excel file from S3.
-Lest get into the Glue Studio and follow the below steps to develop a job
+We now have the backend code ready which we will use it to develop and power the Custom Visual Transform to read an Excel file from S3.
+Let's get into the Glue Studio and follow the below steps to develop a job
 
-
-
-
-![Below screenshot of the ETL Job developed using Glue Studio Visual](https://github.com/techguruonline/Read-Excel-with-Glue-Visual-Custom-Transform/blob/main/Images/GlueJob.png)
+1. On the AWS management console, search for AWS Glue and click to open teh Glue console
+2. On the left hand pane, click on `Visual ETL` under ETL Jobs
+3. Then select `Visual with a blank canvas` and click `Create` on the top right
+4. Add a dummy S3 source as the custom visual transform that we just developed (python code) will take care of parsing and reading the excel file as a first step
+5. Configure the source S3 node as shown in the below screen shot
+![Below screenshot of the ETL Job developed using Glue Studio Visual](https://github.com/techguruonline/Read-Excel-with-Glue-Visual-Custom-Transform/blob/main/Images/GlueJobSrc.png)
+6. Add 
