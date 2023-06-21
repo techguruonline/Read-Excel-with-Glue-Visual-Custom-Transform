@@ -32,10 +32,9 @@ In this example we are going to develop a Visual Custom Transform for reading a 
 2. S3 Bucket for Storing the Source excel file, Python script, config JSON file
 3. Editor for developing Python code (I am using VS Code)
 
-Please refer to the official [documentation](https://docs.aws.amazon.com/glue/latest/ug/custom-visual-transform.html) on AWS Glue custom visual transforms
+Please refer to the official [documentation](https://docs.aws.amazon.com/glue/latest/ug/custom-visual-transform.html) on AWS Glue custom visual transforms for more details!
 
 First we need to develop a Python code with a function to parse and read the excel file. 
-
 Lets examine the below code, I have also provided the python file in the repo, please feel to use it for your purpose.
 
 1. List all the objects in the S3 path
@@ -44,12 +43,13 @@ Lets examine the below code, I have also provided the python file in the repo, p
 4. Read excel using pandas `read_excel` method and `openpyxl` engine
 5. Finally, return a DynamicFrame from a Pandas DataFrame
 
+![Screenshot of Python Code](https://github.com/techguruonline/Read-Excel-with-Glue-Visual-Custom-Transform/blob/main/Images/PythonCode.png)
+
+
 Now we have the backend code ready, to pass the arguments from within the Glue Studio, we need to create a config file
-
-
-
 ![Screenshot of config JSON file](https://github.com/techguruonline/Read-Excel-with-Glue-Visual-Custom-Transform/blob/main/Images/ConfigFile.png)
 
-![Screenshot of Python Code](https://github.com/techguruonline/Read-Excel-with-Glue-Visual-Custom-Transform/blob/main/Images/PythonCode.png)
+
+
 
 ![Below screenshot of the ETL Job developed using Glue Studio Visual](https://github.com/techguruonline/Read-Excel-with-Glue-Visual-Custom-Transform/blob/main/Images/GlueJob.png)
